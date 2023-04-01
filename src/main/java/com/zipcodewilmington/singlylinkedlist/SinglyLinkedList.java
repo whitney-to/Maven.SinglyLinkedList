@@ -21,6 +21,22 @@ public class SinglyLinkedList<T> {
         tail = null;
     }
 
+    public Node<T> getHead() {
+        return head;
+    }
+
+    public void setHead(Node<T> head) {
+        this.head = head;
+    }
+
+    public Node<T> getTail() {
+        return tail;
+    }
+
+    public void setTail(Node<T> tail) {
+        this.tail = tail;
+    }
+
     public void add(Node<T> node){
         if(this.head==null){
             head = node;

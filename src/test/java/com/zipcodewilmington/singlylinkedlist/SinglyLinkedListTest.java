@@ -1,5 +1,6 @@
 package com.zipcodewilmington.singlylinkedlist;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -7,5 +8,10 @@ import org.junit.Test;
  */
 public class SinglyLinkedListTest {
     @Test
+    public void testConstructor(){
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<Integer>();
+        Assert.assertNull(list.getHead());
+        Assert.assertNull(list.getTail());
+    }
 
 }
