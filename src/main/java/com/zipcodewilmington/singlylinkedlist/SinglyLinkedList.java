@@ -32,4 +32,14 @@ public class SinglyLinkedList<T> {
             temp.next = node;
         }
     }
+
+    public Integer size(){
+        Integer count  = 0;
+        Node<T> temp = head;
+        while(temp.next!=null){
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
 }
