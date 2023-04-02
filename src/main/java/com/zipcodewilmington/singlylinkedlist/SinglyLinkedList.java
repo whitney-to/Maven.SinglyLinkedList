@@ -152,29 +152,34 @@ public class SinglyLinkedList<T extends Comparable<T>> {
         }
     }
 
-//    public void sort(){
-//        Node<T> curNode = null;
-//        Node<T> temp = null;
-//        for(int i = 0; i < this.size(); i++){
-//            curNode = get(i);
-//            temp = curNode;
-//            while()
-//            if(curNode.value.compareTo(curNode.next.value) > 0){
-//                swap(curNode,curNode.next);
-//            } else if(curNode.value.compareTo(curNode.next.value) > 0){
-//
-//            }
-//        }
-//    }
+    public void sort(){
+        Node<T> curNode;
+        Node<T> temp;
+        for(int i = 0; i < this.size(); i++){
+            curNode = get(i);
+            temp = curNode;
+            while(temp.next!=null){
+                temp = temp.next;
+                if(curNode.value.compareTo(temp.value)>0){
+                    swap(curNode,temp);
+                    temp = curNode;
+                    curNode = get(i);
+                }
+            }
+        }
+    }
 
     public void swap(Node<T> node1, Node<T> node2){
-        Node<T> temp = node2;
-        if(node1.equals(head)){
-            head = node2;
-        } else if(node2.equals(tail)){
-            tail = node1;
-        }
-        node1.next = node2.next;
-        temp.next = node1;
+//        Node<T> temp = node2;
+//        if(node1.equals(head)){
+//            head = node2;
+//        } else if(node2.equals(tail)){
+//            tail = node1;
+//        }
+//        node1.next = node2.next;
+//        temp.next = node1;
+        T temp = node1.value;
+        node1.value = node2.value;
+        node2.value = temp;
     }
 }
