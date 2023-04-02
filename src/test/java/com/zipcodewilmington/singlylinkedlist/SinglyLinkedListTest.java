@@ -238,4 +238,73 @@ public class SinglyLinkedListTest {
         Assert.assertEquals(expectedNewList,newList.getHead().value);
     }
 
+    @Test
+    public void testRemoveHead() {
+        // Given
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        SinglyLinkedList.Node<Integer> expected = new SinglyLinkedList.Node<>(2);
+        Integer expectedSize = 4;
+
+        // When
+        list.addNode(new SinglyLinkedList.Node<>(1));
+        list.addNode(expected);
+        list.addNode(new SinglyLinkedList.Node<>(3));
+        list.addNode(new SinglyLinkedList.Node<>(4));
+        list.addNode(new SinglyLinkedList.Node<>(5));
+
+        list.remove(0);
+
+        // Then
+        Assert.assertEquals(expectedSize,list.size());
+        Assert.assertEquals(expected,list.getHead());
+    }
+
+    @Test
+    public void testRemoveTail() {
+        // Given
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        SinglyLinkedList.Node<Integer> expected = new SinglyLinkedList.Node<>(2);
+        Integer expectedSize = 4;
+
+        // When
+        list.addNode(new SinglyLinkedList.Node<>(1));
+        list.addNode(new SinglyLinkedList.Node<>(3));
+        list.addNode(new SinglyLinkedList.Node<>(4));
+        list.addNode(expected);
+        list.addNode(new SinglyLinkedList.Node<>(5));
+
+        list.remove(4);
+
+        // Then
+        Assert.assertEquals(expectedSize,list.size());
+        Assert.assertEquals(expected,list.getTail());
+    }
+
+    @Test
+    public void testRemoveMiddleOfList() {
+        // Given
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        SinglyLinkedList.Node<Integer> node = new SinglyLinkedList.Node<>(2);
+        Integer expectedSize = 4;
+
+        // When
+        list.addNode(new SinglyLinkedList.Node<>(1));
+        list.addNode(node);
+        list.addNode(new SinglyLinkedList.Node<>(5));
+        list.addNode(new SinglyLinkedList.Node<>(3));
+        list.addNode(new SinglyLinkedList.Node<>(4));
+
+        list.remove(2);
+
+        // Then
+        Assert.assertEquals(expectedSize,list.size());
+
+        SinglyLinkedList.Node<Integer> temp = list.getHead();
+        for(int i = 0; i < list.size(); i++){
+            Integer expected = i+1;
+            Assert.assertEquals(expected,temp.value);
+            temp=temp.next;
+        }
+    }
+
 }
