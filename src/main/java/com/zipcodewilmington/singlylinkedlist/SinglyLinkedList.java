@@ -170,16 +170,23 @@ public class SinglyLinkedList<T extends Comparable<T>> {
     }
 
     public void swap(Node<T> node1, Node<T> node2){
-//        Node<T> temp = node2;
-//        if(node1.equals(head)){
-//            head = node2;
-//        } else if(node2.equals(tail)){
-//            tail = node1;
-//        }
-//        node1.next = node2.next;
-//        temp.next = node1;
         T temp = node1.value;
         node1.value = node2.value;
         node2.value = temp;
+    }
+
+    public void reverse(){
+        Node<T> prev = null;
+        Node<T> current = head;
+        tail = head;
+        Node<T> curNext = head.next;
+        while(curNext!=null){
+            current.next = prev;
+            prev = current;
+            current = curNext;
+            curNext = current.next;
+        }
+        current.next = prev;
+        head = current;
     }
 }

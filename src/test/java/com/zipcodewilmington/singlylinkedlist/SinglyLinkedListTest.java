@@ -333,4 +333,31 @@ public class SinglyLinkedListTest {
             temp=temp.next;
         }
     }
+
+
+    @Test
+    public void testReverse() {
+        // Given
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        Integer expectedSize = 5;
+
+        // When
+        list.addNode(new SinglyLinkedList.Node<>(5));
+        list.addNode(new SinglyLinkedList.Node<>(4));
+        list.addNode(new SinglyLinkedList.Node<>(3));
+        list.addNode(new SinglyLinkedList.Node<>(2));
+        list.addNode(new SinglyLinkedList.Node<>(1));
+
+        list.reverse();
+
+        // Then
+        Assert.assertEquals(expectedSize,list.size());
+
+        SinglyLinkedList.Node<Integer> temp = list.getHead();
+        for(int i = 0; i < list.size(); i++){
+            Integer expected = i+1;
+            Assert.assertEquals(expected,temp.value);
+            temp=temp.next;
+        }
+    }
 }
