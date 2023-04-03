@@ -12,10 +12,8 @@ public class SinglyLinkedList<T extends Comparable<T>> {
             this.next = null;
         }
     }
-
     Node<T> head;
     Node<T> tail;
-
     public SinglyLinkedList(){
         head = null;
         tail = null;
